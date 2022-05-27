@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #blurBlock {
+            position: fixed;
+            top: 15px;
+            left: 268px;
+            width: 50%;
+            backdrop-filter: blur(1px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .blockOpacityAnimation {
+            width: 4rem;
+            height: 4rem;
+            background-color: #9816e3;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid assumenda consequatur consequuntur-->
+<!--deleniti earum est harum impedit laborum maxime quam reprehenderit tempora tenetur voluptate, voluptatum. Fuga, itaque-->
+<!--repellat. Accusamus.-->
+<!--<div id="blurBlock">-->
+<!--    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus at atque, corporis dolores ducimus fugiat fugit-->
+<!--    magni minus, natus perferendis quam quas qui quia quibusdam recusandae similique veritatis voluptas voluptates.-->
+<!--</div>-->
+<div class="blockOpacityAnimation" id="animate1"></div>
+<div class="blockOpacityAnimation" id="animate2"></div>
+<button id="1" class="cta" name="cta">Click me</button>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    //var buttons =
+    function makeAnimation(event) {
+        console.log("Button clicked");
+        console.log(event.target.id);
+        $('#animate1').animate({
+            opacity: 0.25,
+            left: "+=50",
+            height: "toggle"
+        }, 3000, function () {
+            $('#animate2').animate({
+                opacity: 0.25,
+                left: "+=50",
+                height: "toggle"
+            }, 3000)
+        })
+
+
+    }
+    $('.btn').click();
+    const element = document.getElementById('animatedElement');
+
+    //for ()
+    $('#1').click(makeAnimation);
+</script>
+</html>

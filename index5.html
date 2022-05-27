@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array functions</title>
+</head>
+<body>
+
+</body>
+<script>
+    const integerArray = [241, 5, 45, 4, 87, 251, 347, 8, 4, 65, 8, 7, 5, 231, 6, null, 0];
+    /*for (let i = 0; i < integerArray.length; i++) {
+        console.log(integerArray[i]);
+    }*/
+    /*for (let b of integerArray) {
+        console.log("for ... of ", b)
+    }*/
+    let newIntegerArray = [];
+
+    /*for (let a in integerArray) {
+        if (integerArray[a] != null && integerArray[a] !== 0 && integerArray[a] >= 200) {
+            newIntegerArray.push(integerArray[a])
+        }
+    }*/
+    function forEach(array, callbackFn) {
+        for (let elementIndex in array) {
+            callbackFn(array[elementIndex], elementIndex);
+        }
+    }
+
+    function filter(array, callbackFn) {
+        let bufferArray = []
+        for (let elementIndex in array) {
+            if (callbackFn(array[elementIndex], elementIndex)) {
+                bufferArray.push(array[elementIndex])
+            }
+        }
+        return bufferArray;
+    }
+
+    function map(array, callbackFn) {
+        let bufferArray = []
+        for (let elementIndex in array) {
+            bufferArray.push(callbackFn(array[elementIndex], elementIndex))
+        }
+        return bufferArray;
+    }
+
+    newIntegerArray = filter(integerArray, function (value, index) {
+        return value >= 200;
+    });
+    mappedIntegerArray = map(integerArray, function (value, index) {
+        return value * 20;
+    })
+    console.log('mapping result', mappedIntegerArray);
+    console.log('filtration result', newIntegerArray);
+    forEach(integerArray, function (v, i) {
+        console.log(v, " ", i)
+    })
+
+    /*integerArray.filter(function (value, index, array) {
+        return value != null
+    }).filter(function (value, index, array) {
+        return value !== 0
+    }).filter(function (value, index, array) {
+        return value >= 200
+    }).map(function (value, index, array) {
+        return value + 100;
+    }).forEach(function (value, index, array) {
+        console.log(value)
+    })*/
+
+
+</script>
+</html>
